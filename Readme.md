@@ -6,28 +6,29 @@
 
 Start by computing the descriptive statistics of the data frame (df). This provides measures like count, mean, standard deviation, min, 25th percentile, median, 75th percentile, and max for each numeric column.
 
-'''python
-descriptive_stats = df.describe()
-print("Descriptive Statistics:")
-print(descriptive_stats)
-'''
+
 
 # Skewness and Kurtosis
 
 Compute skewness and kurtosis to understand the shape and tail behavior of the distribution.
 
-'''python
+<pre>
+```python
 skewness = df.skew(numeric_only=True)
 kurtosis = df.kurtosis(numeric_only=True)
 print("Skewness:")
 print(skewness)
 print("\nKurtosis:")
 print(kurtosis)
-'''
+```
+</pre>
+
+
 
 # Visualisation
 
-'''python
+<pre>
+```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -46,20 +47,28 @@ plt.title('Kurtosis of Numerical Columns in DataFrame')
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
-
-'''
+```
+</pre>
 
 # Feature Engineering
 Feature Engineering involves the creation or modification of features to gain better insights from the data and improve model accuracy. Some methods include:
 
 Population Density: A feature called "population_density" can be created by dividing "population" by either "total_rooms" or "total_bedrooms".
+
 Rooms per Household: By dividing "total_rooms" by "households", the average number of rooms in each household can be found.
+
 Bedrooms per Room: "bedrooms_per_room" is found by dividing "total_bedrooms" by "total_rooms".
+
 Income per Capita: "income_per_capita" is found by dividing "median_income" by "population".
+
 Age-Category: Grouping "housing_median_age" into categories such as "young", "middle-aged", and "old" may prove beneficial.
+
 Distance to Ocean: Convert the "ocean_proximity" column to numerical values using methods like one-hot encoding or label encoding.
+
 Geographical Clustering: Techniques like k-means clustering can be used on longitude and latitude coordinates to group different neighborhoods or regions.
+
 Interaction Features: Create interaction features by multiplying or combining existing features.
+
 Polynomial Features: Introduce polynomial features by squaring or cubing certain numerical features to capture non-linear relationships.
 
 # Feature Scaling
@@ -72,11 +81,11 @@ Ensure numerical features have a similar range by using scaling methods such as 
 
 Early stopping can help prevent overfitting by halting training when validation loss stops improving.
 
-'''python
-
+<pre>
+```python
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True, verbose=1)
-
-'''
+```
+</pre>
 
 # Model Building
 
